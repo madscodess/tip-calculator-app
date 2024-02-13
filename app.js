@@ -1,68 +1,34 @@
-console.log("hello i am working");
-let result = 0;
+//get input field
+let billTotal = document.getElementById('bill');
+console.log(billTotal.value);
+// Get all buttons
+const buttons = document.querySelectorAll('button');
+//get custom tip input
+let customTip = document.getElementById('tip-custom');
+// Add a eventListener to every button
 
-let bill = parseInt(document.getElementById('bill').value);
-const tips = document.querySelectorAll('.tip');
 
-
-tips.forEach(function (tip) {
-    bill.addEventListener('input', setBillValue);
-    tip.addEventListener('click', function(e){
-        const styles = e.currentTarget.classList;
-        if (styles.contains('5%')){
-            console.log(bill);
-        }
-    });
-});
-
-function setBillValue() {
-    if (bill.value.includes(',')) {
-        bill.value = bill.value.replace(',', '.');
-    }
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function() { // when a button gets clicked, an function will fire
+    console.log("button clicked");
+    //button value (5, 10 etc / 100 * the value of the bill inputted)
+    let tipAmount = parseFloat(this.value / 100 * billTotal.value);
+    console.log(tipAmount);
+    console.log(customTip.value);
+  });
 }
 
-// tips.forEach(function (tip) {
-// tip.addEventListener('click', function() {
-//     console.log("look im working");
-//     if (styles.contains('5%')){
-//         console.log(bill);
-//         console.log("I AM THE BUTTON");
-//         const result = Math.round((bill / 5) * 100)
-//         console.log(result);
-//     };        
-// }      
-// })
+customTip.oninput = function(){
+  console.log(this.value);
+  let tipAmountCustom = parseFloat(this.value / 100 * billTotal.value);
+  console.log(tipAmountCustom);
+ // console.log(customTip.value);
+}; 
 
 
+// let customTip = document.getElementById('tip-custom');
+// if customTip != 0?? 
 
 
-// JS coding project - tip calculator 
-
-// Let input = query.selector(‘#input’);
-
-// Const tenPerc
-
-// If ( 
-// User clicks tenperc 
-// Run a function
-// 10% of input
-// Then divide bun amount of people
-// )
-// input.textcontent 
-
-// btns.forEach(function (btn) {
-//     btn.addEventListener('click', function(e){
-// const styles = e.currentTarget.classList;
-// console.log("I AM THE BUTTON");
-//         if (styles.contains('fivePercent')){
-//             console.log(bill);
-//             console.log("I AM THE BUTTON");
-//             const result = Math.round((bill / 5) * 100)
-//             console.log(result);
-            
-//         }
-//         //console.log(result);
-//     });
-// })
 
 
