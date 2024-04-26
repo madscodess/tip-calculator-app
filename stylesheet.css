@@ -66,10 +66,12 @@ label{
 
 /* buttons */
 .button-container{
-    margin: 0 0 1.5rem 0;
-    display: flex;
-    /* flex-direction: row; */
-    flex-direction: column;
+    display: flex;   /* Magic begins */
+  flex-wrap: wrap; /* Allow multiple lines */
+    flex: 1 150px;   /* Initial width of 600px/2
+                 Grow to fill remaining space */
+    min-width: 0;    /* No minimal width */
+    flex-direction: row;
     align-items: center;
 }
 
