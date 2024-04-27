@@ -65,24 +65,41 @@ label{
 }
 
 /* buttons */
-.button-container{
-    display: flex;   /* Magic begins */
-  flex-wrap: wrap; /* Allow multiple lines */
-    flex: 1 150px;   /* Initial width of 600px/2
-                 Grow to fill remaining space */
-    min-width: 0;    /* No minimal width */
-    flex-direction: row;
-    align-items: center;
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; /* Adjust the gap between buttons */
 }
+
+.button-container button {
+    width: 100%; /* Make each button occupy the full width of the container */
+    height: 3rem; /* Adjust the height of the buttons */
+    font-size: 1rem; /* Adjust the font size of the buttons */
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--strongCyan);
+    color: var(--white);
+}
+
+
+/* Adjust the custom tip input */
+#tip-custom {
+    width: 100%; /* Make the input occupy the full width */
+    height: 3rem; /* Adjust the height of the input */
+    font-size: 1rem; /* Adjust the font size of the input */
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--veryLightGrayishCyan);
+    padding-right: 0rem;
+}
+
 
 input#tip-custom{
     display: flex;
-    background-color: aqua;
-    text-align: center;
+    text-align: right;
 }
 
 /* totals container */
-
 .total-container p{
     margin:0;
     padding:0;
