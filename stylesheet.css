@@ -80,7 +80,7 @@ label{
 .button-container button {
     width: 100%; /* Make each button occupy the full width of the container */
     height: 3rem; /* Adjust the height of the buttons */
-    font-size: 1rem; /* Adjust the font size of the buttons */
+    font-size: 21px; /* Adjust the font size of the buttons */
     border: none;
     border-radius: 0.3rem;
     background-color: var(--veryDarkCyan); 
@@ -94,7 +94,7 @@ label{
 #tip-custom {
     width: 100%; /* Make the input occupy the full width */
     height: 3rem; /* Adjust the height of the input */
-    font-size: 1rem; /* Adjust the font size of the input */
+    font-size: 21px; /* Adjust the font size of the input */
     font-weight: 800;
     border: none;
     border-radius: 0.3rem;
@@ -121,6 +121,7 @@ input#tip-custom{
     flex-direction: column;
     background-color: var(--veryDarkCyan);
     color: var(--white);
+    font-weight: 800;
 }
 
 .tip{
@@ -140,6 +141,7 @@ input#tip-custom{
     color: var(--grayishCyan);
     display: flex;
     flex-direction: column;
+    font-weight: 100;
 }
 
 .total{
@@ -175,8 +177,6 @@ button#reset {
     width: 100%; /* Make the button occupy the full width initially */
     margin: auto; /* Center the button horizontally */
 }
-
-
 
 /*FOOTER SECTION */
 .attribution { 
