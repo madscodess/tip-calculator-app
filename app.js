@@ -20,7 +20,15 @@ for (var i = 0; i < buttons.length; i++) {
     //button value (5, 10 etc / 100 * the value of the bill inputted)
     tipAmount = parseFloat(this.value / 100 * billTotal.value);
    console.log(tipAmount);
-  // console.log(customTip.value);
+   this.style.backgroundColor = "hsl(172, 67%, 45%)";
+  
+   // Reset background color of other buttons
+  buttons.forEach(btn => {
+    if (btn !== this) {
+      btn.style.backgroundColor = ""; // Reset background color
+         }
+     });
+  
   });
 }
 
@@ -68,5 +76,11 @@ resetButton.addEventListener('click', function() {
     // Clear displayed tip per person and total amount per person
     tipPerPersonText.innerHTML = '';
     totalPerPersonText.innerHTML = '';
+
+      // Reset background color of all buttons
+  buttons.forEach(button => {
+    button.style.backgroundColor = "";
+  });
+
 });
 
