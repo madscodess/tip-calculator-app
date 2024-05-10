@@ -188,5 +188,19 @@ button#reset {
 .attribution a { 
     color: hsl(228, 45%, 44%);
     
+}
+
+
+/* desktop 1440px */
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1440px) {
+    body{
+        background-color: blue;
+    }
+
+    .container{
+        width: 1000px;
+        height: 500px;
+    }
 
 }
