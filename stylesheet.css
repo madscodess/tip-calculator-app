@@ -16,8 +16,6 @@ The designs were created to the following widths:
     --white: hsl(0, 0%, 100%);
 } 
 
-
-
 body {
     font-family: "Space Mono", monospace; 
     background-color: var(--lightGrayishCyan);   
@@ -31,6 +29,13 @@ body {
     justify-content: center;
 }
 
+.wrapper{
+    flex-grow: 100%;
+    padding: 1rem 1rem 1.5rem 1rem;
+    border-radius: 0.8rem;
+    background-color: var(--white);
+}
+
 .container{
     display: flex;
     flex-direction: column;
@@ -40,8 +45,18 @@ body {
     background-color: var(--white);
 }
 
+.sub-heading-people {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
 .sub-heading{
     margin: 0;
+}
+
+.error-message{
+    color: red;
 }
 
 .input-container{
@@ -178,6 +193,8 @@ button#reset {
     margin: auto; /* Center the button horizontally */
 }
 
+
+
 /*FOOTER SECTION */
 .attribution { 
     font-size: 11px; 
@@ -195,12 +212,56 @@ button#reset {
   /* Large Devices, Wide Screens */
   @media only screen and (min-width : 1440px) {
     body{
-        background-color: blue;
+        background-color: var(--lightGrayishCyan);
     }
+.wrapper {
+    display: flex;
+    justify-content: center; /* Center-align the contents horizontally */
+    width: 60%;
+    max-width: 1200px; /* Set a max-width for the wrapper */
+    margin: 100px auto 10px auto; /* Center the wrapper horizontally */
+  }
 
-    .container{
-        width: 1000px;
-        height: 500px;
-    }
+  /* Adjust the width of container */
+  .container {
+    flex-grow: 1; /* Allow container to grow to fill available space */
+  }
 
+  /* Adjust the width and margin of total-container */
+  .total-container {
+    width: 50%; /* Set the width to occupy half of the available space */
+    margin-left: 1rem; /* Add some margin to separate from container */
+    justify-content: center;
+  }
+
+   /* Adjust button-container for desktop */
+   .button-container {
+    grid-template-columns: repeat(3, 0.5fr); /* Display three buttons per row */
+    gap: 0.5rem; /* Adjust the gap between buttons */
+    align-content: center;
+    justify-content: center;
+  }
+
+  .button-container button {
+    width: 100px;
+  }
+
+  /* Adjust the custom tip input for desktop */
+  #tip-custom {
+    width: calc(100% - 2rem); /* Make the input occupy 100% minus the margin */
+    margin-right: 0.5rem; /* Add some margin to the right for spacing */
+  }
+
+  button#reset { 
+    margin-top: auto;
+    margin-bottom: 0;
+  }
+
+  .tip{
+    margin-top: 1rem;
+  }
+
+  .attribution{
+    display: block;
+  }
 }
