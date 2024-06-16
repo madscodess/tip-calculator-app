@@ -49,15 +49,16 @@ body {
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0;
 }
 
-.sub-heading{
-    margin: 0;
+/* Invalid Email */
+p#error {
+    color: hsl(4, 100%, 67%);
+    display: none; /* Hide the error message by default */
 }
 
-.error-message{
-    color: red;
-}
 
 .input-container{
     margin: 0.5rem 0 1.5rem 0;

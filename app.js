@@ -1,38 +1,40 @@
-//get input field
+// Get input field
 let billTotal = document.getElementById('bill');
 console.log(billTotal.value);
 // Get all buttons
 const buttons = document.querySelectorAll('button');
-//get custom tip input
+// Get custom tip input
 let customTip = document.getElementById('tip-custom');
-//get reset button
-resetButton = document.getElementById('reset');
-//set tipAmount
+// Get reset button
+let resetButton = document.getElementById('reset');
+// Set tipAmount
 let tipAmount; 
-//text
+// Text
 let tipPerPersonText = document.getElementById('tipAmountPerPerson');
 let totalPerPersonText = document.getElementById('totalAmountPerPerson');
+// Error message
+let errorMessage = document.getElementById("error");
 
-// Add a eventListener to every button
+// Add an event listener to every button
 for (var i = 0; i < buttons.length; i++) {
-  buttons[i].addEventListener('click', function() { // when a button gets clicked, an function will fire
+  buttons[i].addEventListener('click', function() { // when a button gets clicked, a function will fire
     console.log("button clicked");
-    //button value (5, 10 etc / 100 * the value of the bill inputted)
+    // Button value (5, 10 etc / 100 * the value of the bill inputted)
     tipAmount = parseFloat(this.value / 100 * billTotal.value);
-   console.log(tipAmount);
-   this.style.backgroundColor = "hsl(172, 67%, 45%)";
-  
-   // Reset background color of other buttons
-  buttons.forEach(btn => {
-    if (btn !== this) {
-      btn.style.backgroundColor = ""; // Reset background color
-         }
-     });
-  
+    console.log(tipAmount);
+    this.style.backgroundColor = "hsl(172, 67%, 45%)";
+    
+    // Reset background color of other buttons
+    buttons.forEach(btn => {
+      if (btn !== this) {
+        btn.style.backgroundColor = ""; // Reset background color
+      }
+    });
+    
   });
 }
 
-  // Event listener for custom tip input
+// Event listener for custom tip input
 customTip.oninput = function() {
   console.log(this.value);
   // Calculate tipAmount based on custom tip input
@@ -46,6 +48,17 @@ customTip.oninput = function() {
 function calculateTipPerPerson() {
   // Get number of people input
   let numberOfPeopleAmount = parseFloat(document.getElementById('people').value);
+  
+  // Check if number of people is valid
+  if (!numberOfPeopleAmount || numberOfPeopleAmount <= 0) {
+    // Show error message
+    errorMessage.style.display = "block";
+    return;
+  } else {
+    // Hide error message
+    errorMessage.style.display = "none";
+  }
+  
   // Calculate tip per person
   let tipPerPerson = parseFloat(tipAmount / numberOfPeopleAmount);
   // Calculate bill per person
@@ -61,7 +74,7 @@ function calculateTipPerPerson() {
 // Event listener for number of people input
 document.getElementById('people').oninput = calculateTipPerPerson;
 
-//reset button
+// Reset button
 resetButton.addEventListener('click', function() {
     // Clear the bill total input value
     billTotal.value = '';
@@ -77,10 +90,12 @@ resetButton.addEventListener('click', function() {
     tipPerPersonText.innerHTML = '';
     totalPerPersonText.innerHTML = '';
 
-      // Reset background color of all buttons
-  buttons.forEach(button => {
-    button.style.backgroundColor = "";
-  });
+    // Hide error message
+    errorMessage.style.display = 'none';
+
+    // Reset background color of all buttons
+    buttons.forEach(button => {
+        button.style.backgroundColor = "";
+    });
 
 });
-
